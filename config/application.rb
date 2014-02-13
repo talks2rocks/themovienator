@@ -11,6 +11,9 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+#Add font to assets path
+config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
 module Themovienator
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
