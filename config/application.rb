@@ -28,7 +28,7 @@ module Themovienator
     #Add font to assets path
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile << Proc.new { |path|
-      if path =~ /\.(eot|svg|ttf|woff)\z/
+      if path =~ /\.(eot|svg|ttf|woff|otf)\z/
         true
       end
     }
