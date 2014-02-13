@@ -7,25 +7,25 @@
 */
 
 /***************** @font-face *****************/
+//
+//@include font-face(sky, 'sky,', $asset-pipeline: true);
+//@include font-face(HaloHandletter, 'HaloHandletter', $asset-pipeline: true);
 
-@include font-face(sky, '/', $asset-pipeline: true);
-@include font-face(HaloHandletter, '/', $asset-pipeline: true);
 
-
-//@font-face {
-//  font-family: 'sky';
-//  src: font-url('sky.ttf');
-//  src: local('â˜º'),
-//  font-url('sky.ttf') format('truetype');
-//  font-weight: normal;
-//  font-style: normal;
-//}
-//@font-face {
-//  font-family: 'HaloHandletter';
-//  src: font-url('HaloHandletter.otf');
-//  font-weight: normal;
-//  font-style: normal;
-//}
+@font-face {
+  font-family: 'sky';
+  src: font-url('sky.ttf');
+  src: local('â˜º'),
+  font-url('sky.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HaloHandletter';
+  src: font-url('HaloHandletter.otf');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 /*
