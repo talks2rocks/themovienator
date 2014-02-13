@@ -1,3 +1,641 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+  BeerCamp at SXSW 2011
+  by nclud
+*/
+
+/***************** @font-face *****************/
+
+
+
+@font-face {
+  font-family: 'SKY';
+  src: url('/assets/sky.ttf');
+  src: local('â˜º'),
+  url('/assets/sky.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Halo';
+  src: url('/assets/HaloHandletter.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/*
+  HTML5 ✰ Boilerplate
+
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background: transparent;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display:block;
+}
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+
+/* END RESET CSS */
+
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
+
+select, input, textarea, button { font:99% sans-serif; }
+
+/*
+ * minimal base styles
+ */
+
+
+body, select, input, textarea {
+  color: #223;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* always force a scrollbar in non-IE: */
+html { overflow-y: scroll; }
+
+
+/* accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { color: white; }
+a:hover { color: #B20; }
+
+
+ul, ol { margin-left: 2em; }
+ol { list-style-type: decimal; }
+
+/* remove margins for navigation lists */
+nav ul, nav li { margin: 0; }
+
+/* hand cursor on clickable input elements */
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0; }
+
+/*::-moz-selection { background: #223; color: #DD0; text-shadow: none; }
+::selection      { background: #223; color: #DD0; text-shadow: none; opacity: 1; }*/
+
+button {  width: auto; overflow: visible; }
+
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+
+
+/*
+ * Non-semantic helper classes
+ */
+
+/* for image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
+.clearfix:after { clear: both; }
+/* fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+
+
+
+
+
+html, body {
+  height: 100%;
+}
+
+.csstransforms #wrap {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.csstransforms #offset {
+  height: 50%;
+  width: 100%;
+}
+
+#container {
+  margin: 0 auto;
+  width: 990px;
+}
+
+.csstransforms #container {
+  position: relative;
+  height: 540px;
+  top: -270px;
+  /*  background: hsla( 0, 100%, 50%, 0.3 );*/
+}
+
+.csstransforms #content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+
+#content {
+}
+
+/**** Base ****/
+
+body {
+  background: #FFF;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #000;
+  min-width: 1000px;
+}
+
+a,
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #B20;
+}
+
+#content section h1 {
+  font-family: 'MOD', 'Helvetica Neue', Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 100px;
+  text-align: center;
+  font-weight: normal;
+}
+
+::-moz-selection{ background: #222233; color:#DD0; text-shadow: none; }
+::selection { background:#222233; color:#DD0; text-shadow: none; }
+
+/***************** No Transforms *****************/
+
+.no-csstransforms #container,
+.no-js #container {
+  margin-top: 60px;
+  position: relative;
+}
+
+.no-csstransforms #content section,
+.no-js #content section {
+  width: 100%;
+  height: 540px;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+
+
+/***************** Transforms  *****************/
+
+.csstransforms #content section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.csstransforms #content.transitions-on {
+  -webkit-transition: -webkit-transform 1s;
+  -moz-transition:    -moz-transform 1s;
+  -ms-transition:     -ms-transform 1s;
+  -o-transition:      -o-transform 1s;
+  transition:         transform 1s;
+}
+
+/***************** Faux 3d  *****************/
+
+.faux3d #content section,
+.faux3d #content,
+.faux3d #environment {
+  -webkit-transform-origin: center 450px;
+  -moz-transform-origin: center 450px;
+  -ms-transform-origin: center 450px;
+  -o-transform-origin: center 450px;
+  transform-origin: center 450px;
+}
+
+.faux3d #featuring {
+  -webkit-transform: scale(0.3333);
+  -moz-transform: scale(0.3333);
+  -ms-transform: scale(0.3333);
+  -o-transform: scale(0.3333);
+  transform: scale(0.3333);
+}
+
+.faux3d #sponsorz {
+  -webkit-transform: scale(0.1111);
+  -moz-transform: scale(0.1111);
+  -ms-transform: scale(0.1111);
+  -o-transform: scale(0.1111);
+  transform: scale(0.1111);
+}
+
+.faux3d #flip-cup {
+  -webkit-transform: scale(0.037);
+  -moz-transform: scale(0.037);
+  -ms-transform: scale(0.037);
+  -o-transform: scale(0.037);
+  transform: scale(0.037);
+}
+
+.faux3d #teams {
+  -webkit-transform: scale(0.01234);
+  -moz-transform: scale(0.01234);
+  -ms-transform: scale(0.01234);
+  -o-transform: scale(0.01234);
+  transform: scale(0.01234);
+}
+
+
+.faux3d #limbo {
+  -webkit-transform: scale(0.0013717421124828531);
+  -moz-transform: scale(0.0013717421124828531);
+  -ms-transform: scale(0.0013717421124828531);
+  -o-transform: scale(0.0013717421124828531);
+  transform: scale(0.0013717421124828531);
+}
+
+
+/***************** True 3d  *****************/
+
+.csstransforms3d #environment {
+  width: 100%;
+  height: 540px;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  -ms-perspective: 500px;
+  -o-perspective: 500px;
+  perspective: 500px;
+  -webkit-perspective-origin: center 450px;
+  -moz-perspective-origin: center 450px;
+  -ms-perspective-origin: center 450px;
+  -o-perspective-origin: center 450px;
+  perspective-origin: center 450px;
+}
+
+.csstransforms3d #content {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.csstransforms3d #featuring {
+  -webkit-transform: translate3d( 0, 250px, -2000px );
+  -moz-transform: translate3d( 0, 250px, -2000px );
+  -ms-transform: translate3d( 0, 250px, -2000px );
+  -o-transform: translate3d( 0, 250px, -2000px );
+  transform: translate3d( 0, 250px, -2000px );
+}
+
+
+.csstransforms3d #sponsorz {
+  -webkit-transform: translate3d( 0, 500px, -4000px );
+  -moz-transform: translate3d( 0, 500px, -4000px );
+  -ms-transform: translate3d( 0, 500px, -4000px );
+  -o-transform: translate3d( 0, 500px, -4000px );
+  transform: translate3d( 0, 500px, -4000px );
+}
+
+
+.csstransforms3d #flip-cup {
+  -webkit-transform: translate3d( 0, 750px, -6000px );
+  -moz-transform: translate3d( 0, 750px, -6000px );
+  -ms-transform: translate3d( 0, 750px, -6000px );
+  -o-transform: translate3d( 0, 750px, -6000px );
+  transform: translate3d( 0, 750px, -6000px );
+}
+
+.csstransforms3d #teams {
+  -webkit-transform: translate3d( 0, 1000px, -8000px );
+  -moz-transform: translate3d( 0, 1000px, -8000px );
+  -ms-transform: translate3d( 0, 1000px, -8000px );
+  -o-transform: translate3d( 0, 1000px, -8000px );
+  transform: translate3d( 0, 1000px, -8000px );
+}
+
+.csstransforms3d #limbo {
+  -webkit-transform: translate3d( 0, 1250px, -10000px );
+  -moz-transform: translate3d( 0, 1250px, -10000px );
+  -ms-transform: translate3d( 0, 1250px, -10000px );
+  -o-transform: translate3d( 0, 1250px, -10000px );
+  transform: translate3d( 0, 1250px, -10000px );
+}
+
+/***************** Nav  *****************/
+
+#nav {
+  list-style: none;
+  margin: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left:0;
+}
+
+.touch #nav {
+  top: -20px;
+}
+
+#nav li {
+  font-family: "halo";
+  float: left;
+  margin-right: 2px;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  line-height: 1.4em;
+}
+
+.touch #nav li { font-size: 24px; }
+
+#nav li a {
+  display: block;
+  background: white;
+  color: #000;
+  padding: 0.1em 2.0em 0 0.5em;
+}
+
+#nav li a:hover {
+  background: #ff6666;
+  color: #000;
+}
+
+#nav li.current a {
+  background: #ff6666;
+  color: #000;
+}
+
+#content #nav { display: none; }
+
+.no-csstransforms #nav {
+  position: fixed;
+  top: 10px;
+}
+
+/***************** Intro *****************/
+
+#content section#intro{
+  background: none;
+}
+#content #intro h1 {
+  font-family: 'sky';
+  font-size: 800px;
+  margin: auto;
+  position: absolute;
+  bottom:0; left:0; right:0;
+  height: 700px;
+  line-height: 800px;
+}
+
+#content #intro img{
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+  height: 100px;
+  width: auto;
+}
+
+#content #intro #scroll-message img{
+  opacity: 0;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 100px;
+  height:200px;
+}
+
+#content #intro #scroll-message img.visible {
+  opacity: 1;
+}
+#content #intro #scroll-message img.down {
+  top: 125px;
+}
+
+/***************** Credit  *****************/
+
+
+/***************** Featuring *****************/
+
+#featuring {
+}
+
+#content-box {
+  overflow: hidden;
+  width: 990px;
+  height: 540px;
+}
+
+#scrollable {
+  overflow-y: scroll;
+  width: 1006px;
+  height: 600px;
+}
+
+#video{
+  position: absolute;
+  bottom:0;
+  left: -20%;
+  margin-left:auto;
+  margin-right: auto;
+  z-index: -1;
+  height: 140%;
+  width: 140%;
+  opacity:0;
+  background-color: #000;
+}
+
+/*
+#click_me {
+  height: auto;
+  width: 100px;
+}
+ */
+img#logo {
+  width: 100%;
+  height: auto;
+}
+#reclining_zog{
+  opacity:0;
+  position: absolute;
+  top:-500px;
+  height: 100px;
+}
+#reclining_zog.visible{
+  opacity: 1;
+}
+#featuring #tagline {
+  font-family: "Halo";
+  font-size: 90px;
+  padding-left:10px;
+  padding-bottom: 10px;
+  opacity: 0;
+}
+
+#featuring #tagline.visible {
+  opacity: 1;
+}
+
+#top-navbar{
+  position: fixed;
+  top:-11px;
+  width: 100%;
+  height: 10px;
+  background-color: #000;
+}
+/***************** Sponsors  *****************/
+
+/*
+#featuring #center_div{
+height:70%;
+width:70%;
+margin: auto;
+position: absolute;
+top: 0; left: 0; bottom: 0; right: 0;
+background-color: rgba(0,0,0,0.9);
+color: #fff;
+border:2px solid;
+border-radius:25px;
+}
+#spiel{
+font-family: "SKY";
+}
+ */
+
+#featuring{
+  /*  background-image: url('../images/giphy.gif'); */
+
+}
+
+/***************** Flip Cup  *****************/
+
+
+/***************** Team sign up *****************/
+
+
+/***************** Teams  *****************/
+
+
+
+/***************** INCEPTION *****************/
+
+
+
+/***************** Scroll Proxy  *****************/
+
+
+.csstransforms.no-touch #scroll-proxy { height: 5400px; }
+.csstransforms.no-touch .sign-up #scroll-proxy { height: 0; }
+
+/***************** Sign Up form  *****************/
+
+
+body {
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+body.sign-up { background-color: #223; }
+
+.csstransforms #content,
+.csstransforms #nav {
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.csstransforms .sign-up #sign-up-form {
+  opacity: 1;
+  display: block;
+}
+
+.csstransforms .sign-up #content,
+.csstransforms .sign-up #nav {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+
+
+
+/*
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/
+ */
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+    -ms-filter: none !important; } /* black prints faster: sanbeiji.com/archives/953 */
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+
+/** stuff that Yoel Added **/
+
+/* give each div a semi-transparant background color */
+section {
+  /* background-color: rgba(2,2,2,0.3);  */
+}
+/***************** General Classes (added by yoel)  *****************/
+.visible {
+  opacity: 1;
+}
