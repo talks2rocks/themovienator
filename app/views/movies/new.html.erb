@@ -1,22 +1,12 @@
 <h1>Movies#new</h1>
 <p>Find me in app/views/movies/new.html.erb</p>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@movie) do |f| %>
 
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-
-        <%= f.label :tomatoes_id %>
-        <%= f.text_field :tomatoes_id %>
-
-        <%= f.label :facebook_id %>
-        <%= f.password_field :facebook_id %>
-
-        <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
-</div>
+<%= form_tag(:action => 'search') do %>
+    <p>
+      <%= text_field_tag "SearchInput" %>
+      <%= submit_tag %>
+    </p>
+<% end %>
 
 <%= debug(params) if Rails.env.development? %>
