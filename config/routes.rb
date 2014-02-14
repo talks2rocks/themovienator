@@ -1,5 +1,7 @@
 Themovienator::Application.routes.draw do
-  get "movies/new"
+
+  resources :movies
+  match "/addmovie", to: "movies#new", via: 'get'
   root :to => "static_pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
