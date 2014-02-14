@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "sky";
+  src: url(/fonts/sky-ae8228cb7eaf484b6dc50f290c67b480.ttf);
+  src: local("â˜º"), url(/fonts/sky-ae8228cb7eaf484b6dc50f290c67b480.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "HaloHandletter";
+  src: url(/fonts/HaloHandletter-98b9406c935671f589ace1e5233a30ba.otf);
+  font-weight: normal;
+  font-style: normal; }
