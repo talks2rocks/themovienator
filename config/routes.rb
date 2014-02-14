@@ -1,5 +1,6 @@
 Themovienator::Application.routes.draw do
 
+  match "/searchtomatos", to: "tomato_searches#new", via: 'get'
   resources :movies
   match "/addmovie", to: "movies#new", via: 'get'
   match "/search", to: "movies#search", via: 'post'
