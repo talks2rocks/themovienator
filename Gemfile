@@ -4,6 +4,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.2'
 gem 'pg', '0.15.1'
 gem 'rottentomatoes', '1.0.1'
+gem 'gon', '4.0.3'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
