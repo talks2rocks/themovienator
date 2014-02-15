@@ -1,0 +1,10 @@
+<h1>hi there</h1>
+<%= form_tag(:action => 'new') do %>
+    <p>
+      <%= text_field_tag "SearchInput" %>
+      <%= submit_tag %>
+    </p>
+    <p>
+      <%= @result  %>
+    </p>
+<% end %>
