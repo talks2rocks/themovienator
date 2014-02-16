@@ -1,0 +1,19 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ->
+    for movie in gon.movies
+      do ->
+        $title = movie["table"]["title"]
+        $year = movie["table"]["year"]
+        $rt_id = movie["table"]["id"]
+        $thumbnail = movie['table']['posters']['table']['thumbnail']
+        $form = $('<form action = "/addmovie" method="POST"></form>')
+        $form.append(''+_i+'<input type="text" size="45" name="title" value= "'+$title+'">')
+        $form.append('<input type="text" name="year" value= "'+$year+'">')
+        $form.append('<input type="hidden" name="rt_id" value= "'+$rt_id+'">')
+        $form.append('<img class="thumbnail" src= "'+$thumbnail+'"/>')
+        $form.append('<input type="hidden" name="rt_id" value= "'+$rt_id+'">')
+        $form.append('<input type="button" value="Add to movie DB" />')
+        $form.append('<hr/>')
+        $form.appendTo('div#form')

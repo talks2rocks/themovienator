@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Movienator</title>
+  <%= include_gon %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "tomato_searches", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "tomato_searches", media: "all", "data-turbolinks-track" => true %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

@@ -3,6 +3,6 @@ class TomatoSearchesController < ApplicationController
 
   def new
     @searchTerm = params[:SearchInput]
-    @result = searchRottenTomatoes(@searchTerm)
+    gon.movies = searchRottenTomatoes(@searchTerm)
   end
 end

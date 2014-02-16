@@ -1,10 +1,11 @@
+
 <h1>hi there</h1>
 <%= form_tag(:action => 'new') do %>
     <p>
-      <%= text_field_tag "SearchInput" %>
-      <%= submit_tag %>
+      <%= text_area_tag "SearchInput",nil, size: 55 %>
+      <%= submit_tag "Search for movie"%>
     </p>
-    <p>
-      <%= @result  %>
-    </p>
+    <div id="form">
+
+    </div>
 <% end %>

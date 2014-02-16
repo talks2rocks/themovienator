@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
     # setup your API key
     Rotten.api_key = "u9mpgs79b9pzcsa7wuvmvr6g"
     @movie = RottenMovie.find(:title => "#{query}")
-    if @movie.kind_of?(Array)
-      return @movie[0]
-    else
-      return @movie
-    end
+    return @movie
   end
 end
