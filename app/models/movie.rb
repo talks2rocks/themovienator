@@ -1,4 +1,4 @@
 class Movie < ActiveRecord::Base
-  validates :name, presence: true
-
+  validates :title, presence: true
+  validates :rt_id, presence: true, uniqueness: true
 end

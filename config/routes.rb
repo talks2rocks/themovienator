@@ -2,7 +2,7 @@ Themovienator::Application.routes.draw do
 
   match "/searchtomatos", to: "tomato_searches#new", via: [:get, :post]
   resources :movies
-  match "/addmovie", to: "movies#new", as: :addmovie, via: 'get'
+  match "/addmovie", to: "movies#new", as: :addmovie, via: 'post'
   match "/search", to: "movies#search", via: 'post'
   root :to => "static_pages#home"
   # The priority is based upon order of creation: first created -> highest priority.

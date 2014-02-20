@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214194949) do
+ActiveRecord::Schema.define(version: 20140220162511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "movies", force: true do |t|
-    t.string   "name"
-    t.string   "tomatoes_id"
-    t.string   "facebook_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "year"
+    t.integer  "rt_id"
+    t.string   "title"
   end
 
-  add_index "movies", ["tomatoes_id"], name: "index_movies_on_tomatoes_id", unique: true, using: :btree
+  add_index "movies", ["rt_id"], name: "index_movies_on_rt_id", unique: true, using: :btree
 
   create_table "tomato_searches", force: true do |t|
     t.string   "name"
