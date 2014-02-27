@@ -1,21 +1,69 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-jQuery ->
-    $numOfMovies = gon.movies.length
+makeForm = (json) ->
+    $numOfMovies = json.length
+    $('div#form').html("")
     $('<p>'+$numOfMovies+' results!</p>').appendTo('div#form')
-    for movie in gon.movies
-      do ->
-        $title = movie["table"]["title"]
-        $year = movie["table"]["year"]
-        $rt_id = movie["table"]["id"]
-        $thumbnail = movie['table']['posters']['table']['thumbnail']
-        $form = $('<form action = "../addmovie" method="POST"></form>')
-        $form.append(''+_i+'<input type="text" size="45" name="title" value= "'+$title+'">')
-        $form.append('<input type="text" name="year" value= "'+$year+'">')
-        $form.append('<input type="hidden" name="rt_id" value= "'+$rt_id+'">')
-        #$form.append('<img class="thumbnail" src= "'+$thumbnail+'"/>')
-        $form.append('<input type="hidden" name="rt_id" value= "'+$rt_id+'">')
-        $form.append('<input type="submit" value="Add to movie DB" />')
-        $form.append('<hr/>')
-        $form.appendTo('div#form')
+    for movie in json
+        do ->
+            $title = movie["table"]["title"]
+            $year = movie["table"]["year"]
+            $rt_id = movie["table"]["id"]
+            $thumbnail = movie['table']['posters']['table']['thumbnail']
+            $form = $('<form action = "../addmovie" method="POST" class="save_movie"></form>')
+            $form.append(''+_i+'<input type="text" size="45" name="title" value= "'+$title+'">')
+            $form.append('<input type="text" name="year" value= "'+$year+'">')
+            $form.append('<input type="hidden" name="rt_id" value= "'+$rt_id+'">')
+            #$form.append('<img class="thumbnail" src= "'+$thumbnail+'"/>')
+            $form.append('<input type="hidden" name="rt_id" value= "'+$rt_id+'">')
+            $form.append('<input class="submit" type="submit" value="Add to movie DB" />')
+            $form.append('<hr/>')
+            $form.appendTo('div#form')
+
+logResponse = (response) ->
+    console.log response
+
+nextMovie = () ->
+        $.ajax(
+            url: "/nextsearchedmovie"
+            data: "next"
+            dataType: "JSON"
+            type: "post"
+        ).success (json) ->
+            makeForm(json)
+        #act on result.
+        false # prevents normal behaviour
+
+jQuery ->
+    $("form#search").submit ->
+      valuesToSubmit = $(this).serialize()
+      #sumbits it to the given url of the form
+      # you want a difference between normal and ajax-calls, and json is standard
+      $.ajax(
+        url: $(this).attr("action")
+        data: valuesToSubmit
+        dataType: "JSON"
+        type: "post"
+      ).success (json) ->
+          makeForm(json)
+      #act on result.
+      false # prevents normal behaviour
+
+    $("div#form").on "submit","form.save_movie", ->
+       valuesToSubmit = $(this).serialize()
+       #sumbits it to the given url of the form
+       # you want a difference between normal and ajax-calls, and json is standard
+       $.ajax(
+         url: $(this).attr("action")
+         data: valuesToSubmit
+         dataType: "JSON"
+         type: "post"
+       ).success (json) ->
+               logResponse(json)
+               nextMovie()
+       .error ( jqXHR, textStatus, errorThrown ) ->
+               logResponse([jqXHR,textStatus,errorThrown])
+       #act on result.
+       false # prevents normal behaviour
+    return

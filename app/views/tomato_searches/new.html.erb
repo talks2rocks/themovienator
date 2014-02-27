@@ -1,8 +1,9 @@
 
 <h1>hi there</h1>
-<%= form_tag(:action => 'new') do %>
+<%= form_tag({:action => 'new', :method => 'post'}, :id => 'search') do %>
     <p>
       <%= text_area_tag "SearchInput",nil, size: 55 %>
+      <%= hidden_field_tag "NewSearch", "true" %>
       <%= submit_tag "Search for movie"%>
     </p>
     <div id="form">

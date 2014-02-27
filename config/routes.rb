@@ -1,6 +1,8 @@
 Themovienator::Application.routes.draw do
 
-  match "/searchtomatos", to: "tomato_searches#new", via: [:get, :post]
+  match "/searchtomatos", to: "tomato_searches#new", via: [:get]
+  match "/searchtomatos", to: "tomato_searches#results", via: [:post]
+  match "/nextsearchedmovie", to: "tomato_searches#next", via: [:post]
   resources :movies
   match "/addmovie", to: "movies#new", as: :addmovie, via: 'post'
   match "/search", to: "movies#search", via: 'post'

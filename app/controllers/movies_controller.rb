@@ -10,7 +10,9 @@ class MoviesController < ApplicationController
 
     @movie.save
 
-    redirect_to :back
+    @response = {"response" => @title+" successfully saved"}
+
+    render json: @response
   end
 
   def search
